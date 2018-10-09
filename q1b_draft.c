@@ -12,12 +12,13 @@ int relative_rows = 0;
 int m = 2;
 int spaces = 0;
 int stars = 0;
+int num_triangles = 1;
 
 void print_row(int row, int h_t, int l) {
 	if (l == 1) {
 		spaces += h_t - 1;
 		stars += 1;
-
+	
 		for (int i = 0; i < h_t; i++) {
 			for (int j = 0; j < spaces-i; j++) {
 				printf(" ");
@@ -30,6 +31,7 @@ void print_row(int row, int h_t, int l) {
 			}
 			printf("\n");
 		}
+
 		relative_rows = num_rows/2;
 		m = 2;
 		spaces = 0;
@@ -37,6 +39,7 @@ void print_row(int row, int h_t, int l) {
 	}
 	else {
 		if (row < relative_rows) {
+			num_triangles = 1;e
 			spaces += H/(pow(2,m));
 			m++;
 			print_row(row, h_t/2, l-1);
@@ -61,6 +64,7 @@ int main(int argc, const char *argv[]) {
 
 	for (int i = 0; i < num_rows; i++) {
 		print_row(i, h_t, L);
+		printf("\n");
 	}
 }
 
