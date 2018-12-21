@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
 		fp = fopen(argv[1], "r"); //Opening the Wikipedia page in question
 		fseek(fp,0L,SEEK_END); //Seeking to the end of the file to determine its length
 		int size = ftell(fp); //Storing the length of the file
-		rewind(fp); //Reset to the beginning of the file
+		rewind(fp); //Reset to the beginning of file
 
 		char contents[size+2]; //Array that holds the contents of HTML file
 		fread(contents,size+1,1,fp); //Reading into the array
